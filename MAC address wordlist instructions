@@ -1,0 +1,9 @@
+So the file of all possible octets is over 100mb and I'm having trouble uploading it.
+
+Just use crunch like I did to make it:
+
+crunch 6 6 -f /usr/share/crunch/charset.lst hex-upper -s 000000 -o /root/wordlists/last_octets_mac_addresses.txt
+
+Then sed to prepend the OIU to the list for your WPA cracking list (using BEC routers as an example):
+
+sed -e 's/^/600347/' last_octets_mac_addresses.txt > bec_router_wordlist.txt
